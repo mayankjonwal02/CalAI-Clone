@@ -34,10 +34,16 @@ export default function ProfileScreen() {
       const userData = await getUserProfile(user.uid);
       console.log("UserData:", userData)
       if (userData) {
-        setProfile(userData);
-      }
-      if (userData) {
-        setProfile(userData);
+        setProfile(prev => ({
+          ...prev,
+          ...userData,
+          goals: {
+            calories: userData.goals?.calories ?? 2000,
+            protein: userData.goals?.protein ?? 150,
+            fat: userData.goals?.fat ?? 70,
+            carbohydrates: userData.goals?.carbohydrates ?? 250,
+          },
+        }));
       }
     } catch (error) {
       console.error('Error loading profile:', error);

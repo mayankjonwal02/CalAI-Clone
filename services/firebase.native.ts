@@ -16,11 +16,18 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 // Use React Native persistence on native platforms
-const { getReactNativePersistence } = require('firebase/auth/react-native');
+// const { getReactNativePersistence } = require('firebase/auth/react-native');
 
-export const auth = initializeAuth(app, {
-  persistence: getReactNativePersistence(AsyncStorage),
-});
+// export const auth = initializeAuth(app, {
+//   persistence: getReactNativePersistence(AsyncStorage),
+// });
+
+
+import auth from '@react-native-firebase/auth';
+
+export { auth };
+
+
 
 export const db = getFirestore(app);
 export default app;

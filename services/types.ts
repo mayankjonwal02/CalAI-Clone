@@ -17,6 +17,7 @@ export interface GymEquipmentData {
 export type UserProfile = {
   name: string;
   age: number | string;   // 👈 allow both
+  gender: 'male' | 'female' | 'other';
   height: number | string | null;
   weight: number | string | null;
   activityLevel: 'sedentary' | 'moderate' | 'active';
